@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Carros</title>
+</head>
+<body>
+    <h2>Digite uma consulta sobre carros</h2>
+    <form method="post">
+        <input type="text" name="query" required>
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    {% if search_results %}
+        <h3>Resultados da busca:</h3>
+        <ul>
+            {% for result in search_results['organic_results'][:3] %}
+                <li><strong>{{ result.title }}</strong>: {{ result.snippet }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if response %}
+        <h3>Resposta do Assistente:</h3>
+        <p>{{ response }}</p>
+    {% endif %}
+</body>
+</html>
