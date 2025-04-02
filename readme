@@ -1,61 +1,84 @@
-Car Information Chatbot
-Este projeto é um chatbot simples em Python que responde a perguntas sobre carros. Ele usa a SerpAPI para buscar informações sobre carros na web e a API do OpenAI para gerar respostas claras e concisas para o usuário.
+Chatbot de Consulta de Carros
 
-Funcionalidade
-O chatbot faz uma consulta à SerpAPI para buscar informações relevantes sobre carros.
+Este projeto é um chatbot que busca informações sobre carros utilizando a API do OpenAI e a SerpAPI. Ele foi desenvolvido com Flask e possui uma interface web simples para consultas.
 
-Ele usa a API do OpenAI para gerar uma resposta mais elaborada e personalizada, com base nas informações extraídas.
+Requisitos
 
-O chatbot permite ao usuário fazer perguntas como "Qual o motor do Jetta Highline 2017?" e obter uma resposta concisa.
+Antes de executar o projeto, verifique se você tem os seguintes itens instalados:
 
-Pré-requisitos
-Para rodar este projeto, você precisará:
+Python (versão 3.7 ou superior)
 
-Python 3.x instalado
-Uma chave de API do OpenAI (Modelo: text-davinci-003 ou compatível)
-Uma chave de API do SerpAPI
+Pip (gerenciador de pacotes do Python)
 
-2.Instale as dependências do projeto:
-pip install openai requests
+Instalação e Execução
 
-3.Adicione suas chaves de API ao código. No arquivo chatbot.py, substitua:
+1. Clonar ou baixar o repositório
 
-A chave da SerpAPI na linha 7.
-A chave da OpenAI API na linha 4 (recomenda-se armazenar a chave como uma variável de ambiente ou usar um arquivo .env para maior segurança).
+Se você ainda não tem o projeto, faça o download ou clone o repositório usando:
 
-4.Como Usar
+ git clone https://github.com/seu-repositorio/chatbot-carros.git
+ cd chatbot-carros
 
-Execute o script:
-python chatbot.py
+2. Criar um ambiente virtual (opcional, mas recomendado)
 
-Quando solicitado, digite sua pergunta sobre carros.
-O chatbot buscará informações relevantes na web usando a SerpAPI e responderá com base nos resultados, utilizando a OpenAI API para uma resposta mais completa.
+Para evitar conflitos de dependências, é recomendável criar um ambiente virtual:
 
-Exemplo:
+ python -m venv venv
+ source venv/bin/activate  # Para Linux/Mac
+ venv\Scripts\activate     # Para Windows
 
-Pergunte sobre carros: Motor do Jetta Highline 2017?
+3. Instalar as dependências
 
-Resultados relevantes da API SerpAPI:
-1. Título: 2017 Volkswagen Jetta 4dr 1.8 TSI Auto Highline
-   Descrição: Powertrain · 1,8 l I-4 · 170 hp a 4,800 rpm...
+Instale os pacotes necessários rodando:
 
-Resposta do assistente:
-O motor do Jetta Highline 2017 é um 1.8L Turbo com 170 hp a 6200 rpm.
+ pip install -r requirements.txt
 
-Arquitetura
-SerpAPI: Utilizada para realizar pesquisas na web e obter resultados sobre carros.
-OpenAI API: Usada para gerar respostas baseadas nos resultados encontrados.
-Python: Linguagem utilizada para implementar o chatbot.
+4. Configurar as chaves de API
+
+Este projeto usa duas chaves de API:
+
+OpenAI API Key (para gerar respostas com GPT-3.5 ou GPT-4)
+
+SerpAPI Key (para buscar informações sobre carros)
+
+Crie um arquivo .env na raiz do projeto e adicione suas chaves:
+
+CHAVE_API_OPENAI="sua_chave_openai"
+CHAVE_API_SERPAPI="sua_chave_serpapi"
+
+Atenção: Nunca compartilhe suas chaves de API publicamente.
+
+5. Executar o projeto
+
+Agora você pode iniciar o chatbot rodando:
+
+ python chatbot.py
+
+Se tudo estiver certo, você verá algo como:
+
+ * Running on http://127.0.0.1:5000/
+
+6. Acessar a interface web
+
+Abra um navegador e acesse:
+
+http://127.0.0.1:5000/
+
+Você pode digitar qualquer pergunta sobre carros no campo de pesquisa e receberá uma resposta gerada pelo chatbot!
+
+Possíveis Erros e Soluções
+
+Erro de "Módulo não encontrado": Verifique se você instalou todas as dependências com pip install -r requirements.txt.
+
+Erro de chave da API: Confirme se você criou corretamente o arquivo .env e adicionou suas chaves de API.
+
+Erro ao acessar a página: Certifique-se de que o Flask está rodando e que você está acessando a URL correta.
 
 Contribuição
-Faça um fork deste repositório.
-Crie uma branch para sua feature (git checkout -b feature/nome-da-feature).
-Commit suas mudanças (git commit -am 'Adiciona nova feature').
-Envie para o repositório remoto (git push origin feature/nome-da-feature).
 
-Abra um pull request.
+Se quiser melhorar o projeto, sinta-se à vontade para fazer um fork e enviar um pull request!
 
 Licença
-Distribuído sob a licença MIT. Veja o arquivo LICENSE para mais informações.
 
+Este projeto está sob a licença MIT. Fique à vontade para usá-lo e modificá-lo como quiser!
 
